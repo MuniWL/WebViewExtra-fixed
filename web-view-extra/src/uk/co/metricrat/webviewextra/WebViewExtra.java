@@ -114,9 +114,9 @@ public class WebViewExtra extends AndroidNonvisibleComponent implements Componen
     settings.setUseWideViewPort(true);
     settings.setAllowFileAccess(true);
     settings.setDomStorageEnabled(true);
+    settings.setSupportZoom(true);
     settings.setBuiltInZoomControls(false);
     settings.setDisplayZoomControls(false);
-    settings.setSupportZoom(false);
     settings.setMediaPlaybackRequiresUserGesture(false);
     String ua = settings.getUserAgentString();
     settings.setUserAgentString(ua.replace("; wv", "").replace("Mobile ", "").replace("Version/4.0", ""));
