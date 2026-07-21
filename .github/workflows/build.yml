@@ -5,15 +5,17 @@ on:
   push:
     branches:
       - main
-      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: web-view-extra
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Install Java
         uses: actions/setup-java@v4
@@ -29,12 +31,11 @@ jobs:
       - name: Check Rush
         run: rush --version
 
-      - name: Build extension
+      - name: Build
         run: rush build
 
       - name: Upload AIX
         uses: actions/upload-artifact@v4
         with:
           name: WebViewExtra
-          path: |
-            **/*.aix
+          path: web-view-extra/**/*.aix
